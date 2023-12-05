@@ -1,4 +1,4 @@
-import 'package:news_app/domain/entities/userEntity.dart';
+import 'package:news_app/domain/entities/user_entity.dart';
 
 class UserModel extends UserEntity{
   const UserModel({

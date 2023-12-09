@@ -19,7 +19,7 @@ class SignUpScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
         create: (BuildContext context) {
-          return AuthBloc(sl());
+          return AuthBloc(sl(),sl());
         },
         child: const SignUpScreenContent());
   }
@@ -130,7 +130,13 @@ class _SignUpScreenContentState extends State<SignUpScreenContent> {
                           width: 22,
                         ),
                         text: "Sign Up With Google",
-                        onPressFunction: () {},
+                        onPressFunction: () {
+                          context.read<AuthBloc>().add(
+                            SignUpWithGoogleEvent(
+                              email: _emailController.text,
+                            ),
+                          );
+                        },
                         backgroundColor:
                             Theme.of(context).scaffoldBackgroundColor,
                         textColor: Theme.of(context).primaryColor),
